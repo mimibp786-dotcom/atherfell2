@@ -3,14 +3,18 @@
   "build": {
     "builder": "NIXPACKS",
     "nixpacksPlan": {
-      "providers": {
-        "node": {
-          "version": "18"
+      "providers": [
+        {
+          "node": "18"
         }
-      },
+      ],
       "phases": {
         "install": {
           "cmds": ["npm install"],
+          "cwd": "backend"
+        },
+        "build": {
+          "cmds": [],
           "cwd": "backend"
         },
         "start": {
