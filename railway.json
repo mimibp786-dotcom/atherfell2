@@ -4,6 +4,9 @@
     "builder": "NIXPACKS",
     "nixpacksPlan": {
       "phases": {
+        "setup": {
+          "nixpkgs": ["nodejs_18"]
+        },
         "install": {
           "cmds": ["npm install"],
           "cwd": "backend"
