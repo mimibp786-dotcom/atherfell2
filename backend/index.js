@@ -1,26 +1,16 @@
-{
-  "$schema": "https://railway.app/railway.schema.json",
-  "build": {
-    "builder": "NIXPACKS",
-    "nixpacksPlan": {
-      "providers": ["node"],
-      "phases": {
-        "setup": {
-          "cwd": "backend"
-        },
-        "install": {
-          "cmds": ["npm install"],
-          "cwd": "backend"
-        },
-        "start": {
-          "cmds": ["node index.js"],
-          "cwd": "backend"
-        }
-      }
-    }
-  },
-  "deploy": {
-    "startCommand": "node index.js",
-    "workdir": "backend"
-  }
-}
+import express from "express";
+import cors from "cors";
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully!");
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
