@@ -5,6 +5,9 @@
     "nixpacksPlan": {
       "providers": ["node"],
       "phases": {
+        "setup": {
+          "cwd": "backend"
+        },
         "install": {
           "cmds": ["npm install"],
           "cwd": "backend"
